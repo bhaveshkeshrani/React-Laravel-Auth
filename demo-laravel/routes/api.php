@@ -16,5 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('login', 'Auth\LoginController@login');
-Route::post('signup', 'Auth\RegisterController@signup');
+Route::get('check', function() {
+    echo "here";
+});
+
+Route::get('list', 'FeedbackController@index');
+Route::post('saveFeedBack', 'FeedbackController@store');
+Route::post('updateFeedBack', 'FeedbackController@edit');
